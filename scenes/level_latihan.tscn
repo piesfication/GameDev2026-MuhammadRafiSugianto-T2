@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bsay07w5hqa35"]
+
+[ext_resource type="PackedScene" uid="uid://m0akvnolu6gt" path="res://scenes/green_ship.tscn" id="1_rrudw"]
+[ext_resource type="PackedScene" uid="uid://ct0jns3j6qqo6" path="res://scenes/snow_platform.tscn" id="2_2ewfo"]
+[ext_resource type="Script" uid="uid://bsuv2svmaqypq" path="res://scenes/PlatformBlue.gd" id="3_3w0hk"]
+[ext_resource type="Script" uid="uid://1sthaqg81p5j" path="res://scenes/objective.gd" id="5_vpk1p"]
+[ext_resource type="Texture2D" uid="uid://dh610bbucs6rh" path="res://assets/fasilkom.png" id="5_yp35f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mvcm"]
+size = Vector2(276, 288)
+
+[node name="LevelLatihan" type="Node2D" unique_id=575462825]
+
+[node name="GreenShip" parent="." unique_id=1499400278 instance=ExtResource("1_rrudw")]
+position = Vector2(81, 315)
+
+[node name="SnowPlatform" parent="." unique_id=2082442179 instance=ExtResource("2_2ewfo")]
+position = Vector2(80, 477)
+script = ExtResource("3_3w0hk")
+
+[node name="Objective" type="Node2D" parent="." unique_id=977823014]
+position = Vector2(1043, 112)
+script = ExtResource("5_vpk1p")
+
+[node name="Area2D" type="Area2D" parent="Objective" unique_id=2022313180]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objective/Area2D" unique_id=624139235]
+shape = SubResource("RectangleShape2D_5mvcm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Objective" unique_id=1531132855]
+texture = ExtResource("5_yp35f")
+
+[connection signal="body_entered" from="Objective/Area2D" to="Objective" method="_on_area_2d_body_entered"]

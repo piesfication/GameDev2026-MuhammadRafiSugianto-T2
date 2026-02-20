@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cdlf7k8gkalcj"]
+
+[ext_resource type="Texture2D" uid="uid://dh610bbucs6rh" path="res://assets/fasilkom.png" id="1_0jo4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3owv"]
+size = Vector2(238, 222)
+
+[node name="Objective" type="Node2D" unique_id=1639323600]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1207119707]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1760788624]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_l3owv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1313618379]
+texture = ExtResource("1_0jo4f")
